@@ -1,0 +1,9 @@
+L 10/27/2022 - 23:24:57: SourceMod error session started
+L 10/27/2022 - 23:24:57: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221027.log")
+L 10/27/2022 - 23:24:57: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/27/2022 - 23:24:57: [SM] Blaming: spechud.smx
+L 10/27/2022 - 23:24:57: [SM] Call stack trace:
+L 10/27/2022 - 23:24:57: [SM]   [0] ConVar.AddChangeHook
+L 10/27/2022 - 23:24:57: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 10/27/2022 - 23:24:57: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 10/27/2022 - 23:36:13: Error log file session closed.

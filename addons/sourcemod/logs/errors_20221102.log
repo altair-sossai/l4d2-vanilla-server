@@ -1,0 +1,166 @@
+L 11/02/2022 - 18:34:50: SourceMod error session started
+L 11/02/2022 - 18:34:50: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 18:34:50: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 18:34:50: [SM] Blaming: spechud.smx
+L 11/02/2022 - 18:34:50: [SM] Call stack trace:
+L 11/02/2022 - 18:34:50: [SM]   [0] ConVar.AddChangeHook
+L 11/02/2022 - 18:34:50: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 11/02/2022 - 18:34:50: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 11/02/2022 - 18:35:20: Error log file session closed.
+L 11/02/2022 - 20:15:03: SourceMod error session started
+L 11/02/2022 - 20:15:03: Info (map "c2m1_highway") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 20:15:03: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:15:03: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:15:03: [SM] Call stack trace:
+L 11/02/2022 - 20:15:03: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:15:03: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:15:03: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:15:51: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:15:51: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:15:51: [SM] Call stack trace:
+L 11/02/2022 - 20:15:51: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:15:51: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:15:51: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:06: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:06: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:06: [SM] Call stack trace:
+L 11/02/2022 - 20:16:06: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:06: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:06: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:21: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:21: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:21: [SM] Call stack trace:
+L 11/02/2022 - 20:16:21: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:21: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:21: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:31: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:31: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:31: [SM] Call stack trace:
+L 11/02/2022 - 20:16:31: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:31: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:31: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:34: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:34: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:34: [SM] Call stack trace:
+L 11/02/2022 - 20:16:34: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:34: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:34: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:42: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:42: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:42: [SM] Call stack trace:
+L 11/02/2022 - 20:16:42: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:42: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:42: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 11/02/2022 - 20:16:51: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:16:51: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:16:51: [SM] Call stack trace:
+L 11/02/2022 - 20:16:51: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:16:51: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:16:51: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:17:42: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:17:42: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:17:42: [SM] Call stack trace:
+L 11/02/2022 - 20:17:42: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:17:42: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:17:42: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:17:55: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:17:55: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:17:55: [SM] Call stack trace:
+L 11/02/2022 - 20:17:55: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:17:55: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:17:55: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:18:02: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:18:02: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:18:02: [SM] Call stack trace:
+L 11/02/2022 - 20:18:02: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:18:02: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:18:02: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:18:11: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:18:11: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:18:11: [SM] Call stack trace:
+L 11/02/2022 - 20:18:11: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:18:11: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:18:11: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:18:12: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:18:12: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:18:12: [SM] Call stack trace:
+L 11/02/2022 - 20:18:12: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:18:12: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:18:12: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:18:13: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:18:13: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:18:13: [SM] Call stack trace:
+L 11/02/2022 - 20:18:13: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:18:13: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:18:13: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:18:52: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:18:52: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:18:52: [SM] Call stack trace:
+L 11/02/2022 - 20:18:52: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:18:52: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:18:52: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:20:07: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:20:07: [SM] Call stack trace:
+L 11/02/2022 - 20:20:07: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:20:07: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:20:07: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:20:07: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:20:07: [SM] Call stack trace:
+L 11/02/2022 - 20:20:07: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:20:07: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:20:07: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:20:07: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:20:07: [SM] Call stack trace:
+L 11/02/2022 - 20:20:07: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:20:07: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:20:07: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:20:07: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:20:07: [SM] Call stack trace:
+L 11/02/2022 - 20:20:07: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:20:07: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:20:07: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 20:20:07: [SM] Blaming: pause.smx
+L 11/02/2022 - 20:20:07: [SM] Call stack trace:
+L 11/02/2022 - 20:20:07: [SM]   [0] ConVar.IntValue.get
+L 11/02/2022 - 20:20:07: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 11/02/2022 - 20:20:07: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 11/02/2022 - 20:20:07: Error log file session closed.
+L 11/02/2022 - 23:43:58: SourceMod error session started
+L 11/02/2022 - 23:43:58: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 23:43:58: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 23:43:58: [SM] Blaming: spechud.smx
+L 11/02/2022 - 23:43:58: [SM] Call stack trace:
+L 11/02/2022 - 23:43:58: [SM]   [0] ConVar.AddChangeHook
+L 11/02/2022 - 23:43:58: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 11/02/2022 - 23:43:58: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 11/02/2022 - 23:46:29: SourceMod error session started
+L 11/02/2022 - 23:46:29: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 23:46:29: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 23:46:29: [SM] Blaming: spechud.smx
+L 11/02/2022 - 23:46:29: [SM] Call stack trace:
+L 11/02/2022 - 23:46:29: [SM]   [0] ConVar.AddChangeHook
+L 11/02/2022 - 23:46:29: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 11/02/2022 - 23:46:29: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 11/02/2022 - 23:49:38: SourceMod error session started
+L 11/02/2022 - 23:49:38: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 23:49:38: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 23:49:38: [SM] Blaming: spechud.smx
+L 11/02/2022 - 23:49:38: [SM] Call stack trace:
+L 11/02/2022 - 23:49:38: [SM]   [0] ConVar.AddChangeHook
+L 11/02/2022 - 23:49:38: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 11/02/2022 - 23:49:38: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 11/02/2022 - 23:50:07: Error log file session closed.
+L 11/02/2022 - 23:56:10: SourceMod error session started
+L 11/02/2022 - 23:56:10: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221102.log")
+L 11/02/2022 - 23:56:10: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 11/02/2022 - 23:56:10: [SM] Blaming: spechud.smx
+L 11/02/2022 - 23:56:10: [SM] Call stack trace:
+L 11/02/2022 - 23:56:10: [SM]   [0] ConVar.AddChangeHook
+L 11/02/2022 - 23:56:10: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 11/02/2022 - 23:56:10: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 11/02/2022 - 23:56:44: Error log file session closed.

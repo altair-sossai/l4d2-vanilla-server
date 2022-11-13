@@ -1,0 +1,50 @@
+L 10/28/2022 - 01:01:35: SourceMod error session started
+L 10/28/2022 - 01:01:35: Info (map "c10m1_caves") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221028.log")
+L 10/28/2022 - 01:01:35: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:01:35: [SM] Blaming: pause.smx
+L 10/28/2022 - 01:01:35: [SM] Call stack trace:
+L 10/28/2022 - 01:01:35: [SM]   [0] ConVar.IntValue.get
+L 10/28/2022 - 01:01:35: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 10/28/2022 - 01:01:35: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 10/28/2022 - 01:01:39: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:01:39: [SM] Blaming: pause.smx
+L 10/28/2022 - 01:01:39: [SM] Call stack trace:
+L 10/28/2022 - 01:01:39: [SM]   [0] ConVar.IntValue.get
+L 10/28/2022 - 01:01:39: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 10/28/2022 - 01:01:39: [SM]   [2] Line 333, c:\Users\Sir\SourcePawn11\pause.sp::Unpause_Cmd
+L 10/28/2022 - 01:03:28: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:03:28: [SM] Blaming: pause.smx
+L 10/28/2022 - 01:03:28: [SM] Call stack trace:
+L 10/28/2022 - 01:03:28: [SM]   [0] ConVar.IntValue.get
+L 10/28/2022 - 01:03:28: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 10/28/2022 - 01:03:28: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 10/28/2022 - 01:03:49: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:03:49: [SM] Blaming: pause.smx
+L 10/28/2022 - 01:03:49: [SM] Call stack trace:
+L 10/28/2022 - 01:03:49: [SM]   [0] ConVar.IntValue.get
+L 10/28/2022 - 01:03:49: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 10/28/2022 - 01:03:49: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 10/28/2022 - 01:04:31: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:04:31: [SM] Blaming: pause.smx
+L 10/28/2022 - 01:04:31: [SM] Call stack trace:
+L 10/28/2022 - 01:04:31: [SM]   [0] ConVar.IntValue.get
+L 10/28/2022 - 01:04:31: [SM]   [1] Line 679, c:\Users\Sir\SourcePawn11\pause.sp::InitiateLiveCountdown
+L 10/28/2022 - 01:04:31: [SM]   [2] Line 193, c:\Users\Sir\SourcePawn11\pause.sp::OnClientDisconnect_Post
+L 10/28/2022 - 01:53:33: SourceMod error session started
+L 10/28/2022 - 01:53:33: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221028.log")
+L 10/28/2022 - 01:53:33: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 01:53:33: [SM] Blaming: spechud.smx
+L 10/28/2022 - 01:53:33: [SM] Call stack trace:
+L 10/28/2022 - 01:53:33: [SM]   [0] ConVar.AddChangeHook
+L 10/28/2022 - 01:53:33: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 10/28/2022 - 01:53:33: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 10/28/2022 - 01:59:01: Error log file session closed.
+L 10/28/2022 - 21:08:14: SourceMod error session started
+L 10/28/2022 - 21:08:14: Info (map "c1m1_hotel") (file "/home/steam/l4d2/left4dead2/addons/sourcemod/logs/errors_20221028.log")
+L 10/28/2022 - 21:08:14: [SM] Exception reported: Invalid convar handle 0 (error 4)
+L 10/28/2022 - 21:08:14: [SM] Blaming: spechud.smx
+L 10/28/2022 - 21:08:14: [SM] Call stack trace:
+L 10/28/2022 - 21:08:14: [SM]   [0] ConVar.AddChangeHook
+L 10/28/2022 - 21:08:14: [SM]   [1] Line 98, J:\Documents\GitHub\L4D2-Competitive-Rework\addons\sourcemod\scripting\spechud.sp::OnPluginStart
+L 10/28/2022 - 21:08:14: [SM] Unable to load plugin "spechud.smx": Error detected in plugin startup (see error logs)
+L 10/28/2022 - 21:10:07: Error log file session closed.

@@ -1,3 +1,4 @@
 .vscode
 .local
 cfg/server_secret.cfg
+addons/sourcemod/logs/

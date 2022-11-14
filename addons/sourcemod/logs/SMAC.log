@@ -1,4 +1,0 @@
-L 11/05/2022 - 00:25:48: [smac_cvars.smx | 0.8.7.3] Deva (ID: STEAM_1:1:53759167 | IP: 177.37.250.59) was banned for failing checks on convar "sv_consistency". result "Okay" | CompType: "replicated" | cvarValue "0" | value: "1" | value2: ""
-	Map: c2m2_fairgrounds | Origin: 1621 2706 4 | Angles: 0 0 0 | Weapon: weapon_smoker_claw | Team: 3 | Latency: 124ms
-L 11/05/2022 - 18:44:20: [smac_commands.smx | 0.8.7.3] Altair (ID: STEAM_1:0:90628109 | IP: 200.79.187.66) was kicked for spamming: say !bonus
-	Map: c8m3_sewers | Origin: 13318 7420 16 | Angles: 20 -1 0 | Weapon: weapon_shotgun_spas | Team: 2 | Latency: 33ms

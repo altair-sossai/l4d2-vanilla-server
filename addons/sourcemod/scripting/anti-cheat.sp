@@ -23,7 +23,7 @@ public void OnPluginStart()
 	RegAdminCmd("sm_addsusp", AddSuspected, ADMFLAG_BAN);
 	RegAdminCmd("sm_remsusp", RemoveSuspected, ADMFLAG_BAN);
 
-	CreateTimer(30.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
+	CreateTimer(20.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
 	CreateTimer(2.0, MoveToSpectatedPlayersWithoutAntiCheatTick, _, TIMER_REPEAT);
 	
 	RefreshSuspectsList();
@@ -185,6 +185,9 @@ public void MoveToSpectatedPlayersWithoutAntiCheat()
 				continue;
 
 			ChangeClientTeam(client, 1);
+			PrintToChat(client, "Você foi movido para a lista de suspeitos, para continuar jogando faça download do Anti-cheat utilizando a URL abaixo:");
+			PrintToChat(client, "https://zeatslauncherstorage.blob.core.windows.net/installers/l4d2-anti-cheat.exe");
+
 			break;
 		}
 	}

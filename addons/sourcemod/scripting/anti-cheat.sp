@@ -20,8 +20,8 @@ public void OnPluginStart()
 	cvar_anti_cheat_endpoint = CreateConVar("anti_cheat_endpoint", "https://l4d2-server-manager-api.azurewebsites.net", "Anti-cheat endpoint", FCVAR_PROTECTED);
 	cvar_anti_cheat_access_token = CreateConVar("anti_cheat_access_token", "", "Anti-cheat Access Token", FCVAR_PROTECTED);
 
-	RegAdminCmd("sm_add_suspected", AddSuspected, ADMFLAG_BAN);
-	RegAdminCmd("sm_remove_suspected", RemoveSuspected, ADMFLAG_BAN);
+	RegAdminCmd("sm_addsusp", AddSuspected, ADMFLAG_BAN);
+	RegAdminCmd("sm_remsusp", RemoveSuspected, ADMFLAG_BAN);
 
 	CreateTimer(30.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
 	CreateTimer(2.0, MoveToSpectatedPlayersWithoutAntiCheatTick, _, TIMER_REPEAT);
@@ -48,12 +48,53 @@ public Action:AddSuspected(client, args)
 	decl String:suspected[64];
 	GetCmdArgString(suspected, sizeof(suspected));
 
-	PrintToChatAll(suspected);
+	JSONObject command = new JSONObject();
+	command.SetString("account", suspected);
+
+	HTTPRequest request = BuildHTTPRequest("/api/suspected-players");
+	request.Post(command, AddSuspectedResponse);
+}
+
+void AddSuspectedResponse(HTTPResponse httpResponse, any value)
+{
+	if (httpResponse.Status != HTTPStatus_OK)
+	{
+		PrintToChatAll("Falha ao adicionar jogador suspeito.");
+		return;
+	}
+
+	JSONObject response = view_as<JSONObject>(httpResponse.Data);
+
+	new String:name[255];
+	response.GetString("name", name, sizeof(name));
+	PrintToChatAll("\x04%s\x01 adicionado como suspeito.", name);
+
+	RefreshSuspectsList();
 }
 
 public Action:RemoveSuspected(client, args)
 {
-	
+	decl String:suspected[64];
+	GetCmdArgString(suspected, sizeof(suspected));
+
+	JSONObject command = new JSONObject();
+	command.SetString("account", suspected);
+
+	HTTPRequest request = BuildHTTPRequest("/api/suspected-players/delete");
+	request.Post(command, RemoveSuspectedResponse);
+}
+
+void RemoveSuspectedResponse(HTTPResponse httpResponse, any value)
+{
+	if (httpResponse.Status != HTTPStatus_OK)
+	{
+		PrintToChatAll("Falha ao remover jogador suspeito.");
+		return;
+	}
+
+	PrintToChatAll("Jogador removido da lista de suspeito.");
+
+	RefreshSuspectsList();
 }
 
 public HTTPRequest BuildHTTPRequest(char[] path)

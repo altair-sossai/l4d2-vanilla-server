@@ -20,6 +20,9 @@ public void OnPluginStart()
 	cvar_anti_cheat_endpoint = CreateConVar("anti_cheat_endpoint", "https://l4d2-server-manager-api.azurewebsites.net", "Anti-cheat endpoint", FCVAR_PROTECTED);
 	cvar_anti_cheat_access_token = CreateConVar("anti_cheat_access_token", "", "Anti-cheat Access Token", FCVAR_PROTECTED);
 
+	RegAdminCmd("sm_add_suspected", AddSuspected, ADMFLAG_BAN);
+	RegAdminCmd("sm_remove_suspected", RemoveSuspected, ADMFLAG_BAN);
+
 	CreateTimer(30.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
 	CreateTimer(2.0, MoveToSpectatedPlayersWithoutAntiCheatTick, _, TIMER_REPEAT);
 	
@@ -38,6 +41,19 @@ public Action MoveToSpectatedPlayersWithoutAntiCheatTick(Handle timer)
 	MoveToSpectatedPlayersWithoutAntiCheat();
 
 	return Plugin_Continue;
+}
+
+public Action:AddSuspected(client, args)
+{
+	decl String:suspected[64];
+	GetCmdArgString(suspected, sizeof(suspected));
+
+	PrintToChatAll(suspected);
+}
+
+public Action:RemoveSuspected(client, args)
+{
+	
 }
 
 public HTTPRequest BuildHTTPRequest(char[] path)

@@ -1,7 +1,7 @@
 #include <ripext>
 #include <sourcemod>
 
-String:AreNotUsing[18][25];
+String:AreNotUsing[30][25];
 
 public Plugin myinfo =
 {
@@ -86,7 +86,7 @@ void RefreshSuspectsListResponse(HTTPResponse httpResponse, any value)
 	if (httpResponse.Status != HTTPStatus_OK)
 		return;
 
-	for (int i = 0; i < 18; i++)
+	for (int i = 0; i < 30; i++)
 		AreNotUsing[i] = "";
 
 	JSONObject response = view_as<JSONObject>(httpResponse.Data);
@@ -119,7 +119,7 @@ public void MoveToSpectatedPlayersWithoutAntiCheat()
 		new String:communityId[25];
 		GetClientAuthId(client, AuthId_SteamID64, communityId, sizeof(communityId));
 
-		for (int i = 0; i < 18; i++)
+		for (int i = 0; i < 30; i++)
 		{
 			if(StrEqual(AreNotUsing[i], ""))
 				break;

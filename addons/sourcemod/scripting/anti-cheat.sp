@@ -1,6 +1,7 @@
 #include <ripext>
 #include <sourcemod>
 
+int sync_is_running = 0;
 String:AreNotUsing[30][25];
 
 public Plugin myinfo =
@@ -23,14 +24,23 @@ public void OnPluginStart()
 	RegAdminCmd("sm_addsusp", AddSuspected, ADMFLAG_BAN);
 	RegAdminCmd("sm_remsusp", RemoveSuspected, ADMFLAG_BAN);
 
-	CreateTimer(20.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
+	HookEvent("player_team", PlayerTeam_Event);
+
+	CreateTimer(30.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
 	CreateTimer(2.0, MoveToSpectatedPlayersWithoutAntiCheatTick, _, TIMER_REPEAT);
 	
 	RefreshSuspectsList();
 }
 
+public PlayerTeam_Event(Handle:event, const String:name[], bool:dontBroadcast)
+{
+	RefreshSuspectsList();
+}
+
 public Action RefreshSuspectsListTick(Handle timer)
 {
+	sync_is_running = 0;
+
 	RefreshSuspectsList();
 
 	return Plugin_Continue;
@@ -59,7 +69,7 @@ void AddSuspectedResponse(HTTPResponse httpResponse, any value)
 {
 	if (httpResponse.Status != HTTPStatus_OK)
 	{
-		PrintToChatAll("Falha ao adicionar jogador suspeito.");
+		PrintToChatAll("\x04Falha ao adicionar jogador suspeito.");
 		return;
 	}
 
@@ -88,11 +98,11 @@ void RemoveSuspectedResponse(HTTPResponse httpResponse, any value)
 {
 	if (httpResponse.Status != HTTPStatus_OK)
 	{
-		PrintToChatAll("Falha ao remover jogador suspeito.");
+		PrintToChatAll("\x04Falha ao remover jogador suspeito.");
 		return;
 	}
 
-	PrintToChatAll("Jogador removido da lista de suspeito.");
+	PrintToChatAll("\x03Jogador removido da lista de suspeito.");
 
 	RefreshSuspectsList();
 }
@@ -114,6 +124,11 @@ public HTTPRequest BuildHTTPRequest(char[] path)
 
 public void RefreshSuspectsList()
 {
+	if (sync_is_running == 1)
+		return;
+
+	sync_is_running = 1;
+
 	JSONObject command = new JSONObject();
 	JSONArray suspecteds = new JSONArray();
 
@@ -140,6 +155,8 @@ public void RefreshSuspectsList()
 
 void RefreshSuspectsListResponse(HTTPResponse httpResponse, any value)
 {
+	sync_is_running = 0;
+
 	if (httpResponse.Status != HTTPStatus_OK)
 		return;
 
@@ -185,8 +202,13 @@ public void MoveToSpectatedPlayersWithoutAntiCheat()
 				continue;
 
 			ChangeClientTeam(client, 1);
-			PrintToChat(client, "Você foi movido para a lista de suspeitos, para continuar jogando faça download do Anti-cheat utilizando a URL abaixo:");
-			PrintToChat(client, "https://zeatslauncherstorage.blob.core.windows.net/installers/l4d2-anti-cheat.exe");
+			PrintToChat(client, "******************************************");
+			PrintToChat(client, "");
+			PrintToChat(client, "Você foi movido para a lista de suspeitos.");
+			PrintToChat(client, "Para continuar jogando instale o Anti-cheat.");
+			PrintToChat(client, "\x04Download: \x03https://zeatslauncherstorage.blob.core.windows.net/installers/l4d2-anti-cheat.exe");
+			PrintToChat(client, "");
+			PrintToChat(client, "******************************************");
 
 			break;
 		}

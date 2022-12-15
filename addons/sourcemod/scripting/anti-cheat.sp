@@ -37,6 +37,11 @@ public PlayerTeam_Event(Handle:event, const String:name[], bool:dontBroadcast)
 	RefreshSuspectsList();
 }
 
+public OnClientPutInServer(client)
+{
+	RefreshSuspectsList();
+}
+
 public Action RefreshSuspectsListTick(Handle timer)
 {
 	sync_is_running = 0;

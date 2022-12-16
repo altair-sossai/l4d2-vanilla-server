@@ -12,23 +12,28 @@ public Plugin myinfo =
 	url			= "http://www.sourcemod.net/"
 };
 
-public OnClientPutInServer(client)
+public void OnPluginStart()
 {
-	if (!client)
-		return;
+	CreateTimer(5.0, SilenceTick, _, TIMER_REPEAT);
+}
 
-	new String:SteamID[64];
-	GetClientAuthId(client, AuthId_Steam2, SteamID, sizeof(SteamID));
-
-	if (StrEqual(SteamID, "BOT"))
-		return;
-
-	new String:Name[128];
-	GetClientName(client, Name, sizeof(Name));
-
-	if (StrContains(SteamID, ":598701106", true) != -1 /* hard */)
+public Action SilenceTick(Handle timer)
+{
+	for (int client = 1; client <= MaxClients; client++)
 	{
-		BaseComm_SetClientGag(client, true);
-		BaseComm_SetClientMute(client, true);
+		if (!IsClientInGame(client) || IsFakeClient(client))
+			continue;
+
+		new String:communityId[25];
+		GetClientAuthId(client, AuthId_SteamID64, communityId, sizeof(communityId));
+
+		if(StrEqual(communityId, "76561199157667941") /* hard */
+		   || StrEqual(communityId, "76561199416635277") /* silence */)
+		{
+			BaseComm_SetClientGag(client, true);
+			BaseComm_SetClientMute(client, true);
+		}
 	}
+
+	return Plugin_Continue;
 }

@@ -20,13 +20,12 @@ public void OnRoundIsLive()
 		if (!IsClientInGame(i) || GetClientTeam(i) != 2) 
 			continue;
 
-		for (new j = 0; j < 4; j++)
-		{
-			FakeClientCommand(i, "give shotgun_chrome");
-			FakeClientCommand(i, "give pumpshotgun");
-			FakeClientCommand(i, "give smg");
-			FakeClientCommand(i, "give smg_silenced");
-		}
+		FakeClientCommand(i, "give shotgun_chrome");
+		FakeClientCommand(i, "give pumpshotgun");
+		FakeClientCommand(i, "give smg");
+		FakeClientCommand(i, "give smg_silenced");
+		FakeClientCommand(i, "give katana");
+		FakeClientCommand(i, "give katana");
 
 		break;
 	}

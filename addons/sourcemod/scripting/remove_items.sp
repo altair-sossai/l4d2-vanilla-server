@@ -27,7 +27,7 @@ void RemoveMedkits()
     int iEntityCount = GetEntityCount();
     char EdictClassName[128];
 
-    int weapon_molotov = 1;
+    int weapon_molotov = 2;
     int weapon_pipe_bomb = 2;
     int weapon_pain_pills = 2;
     int weapon_adrenaline = 2;

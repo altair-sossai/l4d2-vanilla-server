@@ -24,8 +24,6 @@ public void OnRoundIsLive()
 		FakeClientCommand(i, "give pumpshotgun");
 		FakeClientCommand(i, "give smg");
 		FakeClientCommand(i, "give smg_silenced");
-		FakeClientCommand(i, "give katana");
-		FakeClientCommand(i, "give katana");
 
 		break;
 	}

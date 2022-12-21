@@ -2,6 +2,8 @@
 #include <sourcemod>
 
 int sync_is_running = 0;
+int server_ping_is_running = 0;
+
 String:AreNotUsing[30][25];
 
 public Plugin myinfo =
@@ -28,8 +30,10 @@ public void OnPluginStart()
 
 	CreateTimer(30.0, RefreshSuspectsListTick, _, TIMER_REPEAT);
 	CreateTimer(2.0, MoveToSpectatedPlayersWithoutAntiCheatTick, _, TIMER_REPEAT);
+	CreateTimer(60.0, ServerPingTick, _, TIMER_REPEAT);
 	
 	RefreshSuspectsList();
+	ServerPing();
 }
 
 public PlayerTeam_Event(Handle:event, const String:name[], bool:dontBroadcast)
@@ -54,6 +58,16 @@ public Action RefreshSuspectsListTick(Handle timer)
 public Action MoveToSpectatedPlayersWithoutAntiCheatTick(Handle timer)
 {
 	MoveToSpectatedPlayersWithoutAntiCheat();
+
+	return Plugin_Continue;
+}
+
+public Action ServerPingTick(Handle timer)
+{
+	server_ping_is_running = 0;
+
+	if (NumberOfConnectedPlayers() > 0)
+		ServerPing();
 
 	return Plugin_Continue;
 }
@@ -97,6 +111,25 @@ public Action:RemoveSuspected(client, args)
 
 	HTTPRequest request = BuildHTTPRequest("/api/suspected-players/delete");
 	request.Post(command, RemoveSuspectedResponse);
+}
+
+int NumberOfConnectedPlayers()
+{
+	int players = 0;
+
+	for (int client = 1; client <= MaxClients; client++)
+	{
+		if (!IsClientInGame(client) || IsFakeClient(client))
+			continue;
+
+		int clientTeam = GetClientTeam(client);
+		if (clientTeam != 1 && clientTeam != 2 && clientTeam != 3)
+			continue;
+
+		players++;
+	}
+
+	return players;
 }
 
 void RemoveSuspectedResponse(HTTPResponse httpResponse, any value)
@@ -182,6 +215,23 @@ void RefreshSuspectsListResponse(HTTPResponse httpResponse, any value)
 	}
 
 	MoveToSpectatedPlayersWithoutAntiCheat();
+}
+
+public void ServerPing()
+{
+	if (server_ping_is_running == 1)
+		return;
+
+	server_ping_is_running = 1;
+
+	JSONObject command = new JSONObject();
+	HTTPRequest request = BuildHTTPRequest("/api/server-ping");
+	request.Post(command, ServerPingResponse);
+}
+
+void ServerPingResponse(HTTPResponse httpResponse, any value)
+{
+	server_ping_is_running = 0;
 }
 
 public void MoveToSpectatedPlayersWithoutAntiCheat()

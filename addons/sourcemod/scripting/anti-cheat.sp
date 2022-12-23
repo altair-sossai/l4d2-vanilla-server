@@ -36,40 +36,10 @@ public void OnPluginStart()
 	ServerPing();
 }
 
-public PlayerTeam_Event(Handle:event, const String:name[], bool:dontBroadcast)
-{
-	RefreshSuspectsList();
-}
-
 public OnClientPutInServer(client)
 {
 	RefreshSuspectsList();
-}
-
-public Action RefreshSuspectsListTick(Handle timer)
-{
-	sync_is_running = 0;
-
-	RefreshSuspectsList();
-
-	return Plugin_Continue;
-}
-
-public Action MoveToSpectatedPlayersWithoutAntiCheatTick(Handle timer)
-{
-	MoveToSpectatedPlayersWithoutAntiCheat();
-
-	return Plugin_Continue;
-}
-
-public Action ServerPingTick(Handle timer)
-{
-	server_ping_is_running = 0;
-
-	if (NumberOfConnectedPlayers() > 0)
-		ServerPing();
-
-	return Plugin_Continue;
+	RegisterPlayerIp(client);
 }
 
 public Action:AddSuspected(client, args)
@@ -113,25 +83,6 @@ public Action:RemoveSuspected(client, args)
 	request.Post(command, RemoveSuspectedResponse);
 }
 
-int NumberOfConnectedPlayers()
-{
-	int players = 0;
-
-	for (int client = 1; client <= MaxClients; client++)
-	{
-		if (!IsClientInGame(client) || IsFakeClient(client))
-			continue;
-
-		int clientTeam = GetClientTeam(client);
-		if (clientTeam != 1 && clientTeam != 2 && clientTeam != 3)
-			continue;
-
-		players++;
-	}
-
-	return players;
-}
-
 void RemoveSuspectedResponse(HTTPResponse httpResponse, any value)
 {
 	if (httpResponse.Status != HTTPStatus_OK)
@@ -145,19 +96,35 @@ void RemoveSuspectedResponse(HTTPResponse httpResponse, any value)
 	RefreshSuspectsList();
 }
 
-public HTTPRequest BuildHTTPRequest(char[] path)
+public PlayerTeam_Event(Handle:event, const String:name[], bool:dontBroadcast)
 {
-	new String:endpoint[255];
-	GetConVarString(cvar_anti_cheat_endpoint, endpoint, sizeof(endpoint));
-	StrCat(endpoint, sizeof(endpoint), path);
+	RefreshSuspectsList();
+}
 
-	new String:access_token[100];
-	GetConVarString(cvar_anti_cheat_access_token, access_token, sizeof(access_token));
+public Action RefreshSuspectsListTick(Handle timer)
+{
+	sync_is_running = 0;
 
-	HTTPRequest request = new HTTPRequest(endpoint);
-	request.SetHeader("Authorization", access_token);
+	RefreshSuspectsList();
 
-	return request;
+	return Plugin_Continue;
+}
+
+public Action MoveToSpectatedPlayersWithoutAntiCheatTick(Handle timer)
+{
+	MoveToSpectatedPlayersWithoutAntiCheat();
+
+	return Plugin_Continue;
+}
+
+public Action ServerPingTick(Handle timer)
+{
+	server_ping_is_running = 0;
+
+	if (NumberOfConnectedPlayers() > 0)
+		ServerPing();
+
+	return Plugin_Continue;
 }
 
 public void RefreshSuspectsList()
@@ -234,6 +201,29 @@ void ServerPingResponse(HTTPResponse httpResponse, any value)
 	server_ping_is_running = 0;
 }
 
+void RegisterPlayerIp(client)
+{
+	if (!IsClientInGame(client) || IsFakeClient(client))
+		return;
+
+	JSONObject command = new JSONObject();
+	
+	new String:communityId[25];
+	GetClientAuthId(client, AuthId_SteamID64, communityId, sizeof(communityId));
+	command.SetString("communityId", communityId);
+
+	new String:ip[32];
+	GetClientIP(client, ip, sizeof(ip));
+	command.SetString("ip", ip);
+
+	HTTPRequest request = BuildHTTPRequest("/api/player-ip");
+	request.Post(command, RegisterPlayerIpResponse);
+}
+
+void RegisterPlayerIpResponse(HTTPResponse httpResponse, any value)
+{
+}
+
 public void MoveToSpectatedPlayersWithoutAntiCheat()
 {
 	for (int client = 1; client <= MaxClients; client++)
@@ -268,4 +258,38 @@ public void MoveToSpectatedPlayersWithoutAntiCheat()
 			break;
 		}
 	}
+}
+
+int NumberOfConnectedPlayers()
+{
+	int players = 0;
+
+	for (int client = 1; client <= MaxClients; client++)
+	{
+		if (!IsClientInGame(client) || IsFakeClient(client))
+			continue;
+
+		int clientTeam = GetClientTeam(client);
+		if (clientTeam != 1 && clientTeam != 2 && clientTeam != 3)
+			continue;
+
+		players++;
+	}
+
+	return players;
+}
+
+HTTPRequest BuildHTTPRequest(char[] path)
+{
+	new String:endpoint[255];
+	GetConVarString(cvar_anti_cheat_endpoint, endpoint, sizeof(endpoint));
+	StrCat(endpoint, sizeof(endpoint), path);
+
+	new String:access_token[100];
+	GetConVarString(cvar_anti_cheat_access_token, access_token, sizeof(access_token));
+
+	HTTPRequest request = new HTTPRequest(endpoint);
+	request.SetHeader("Authorization", access_token);
+
+	return request;
 }

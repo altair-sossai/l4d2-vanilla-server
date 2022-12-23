@@ -222,6 +222,39 @@ void RegisterPlayerIp(client)
 
 void RegisterPlayerIpResponse(HTTPResponse httpResponse, any value)
 {
+	if (httpResponse.Status != HTTPStatus_OK)
+		return;
+
+	JSONObject response = view_as<JSONObject>(httpResponse.Data);
+	JSONArray withSameIp = view_as<JSONArray>(response.Get("withSameIp"));
+	if (withSameIp.Length == 0)
+		return;
+
+	char ip[32];
+	response.GetString("ip", ip, sizeof(ip));
+
+	JSONObject player = view_as<JSONObject>(response.Get("player"));
+
+	char playerName[256];
+	player.GetString("name", playerName, sizeof(playerName));
+
+	PrintToChatAll("******************************************");
+	PrintToChatAll("\x01O jogador \x03%s\x01 utiliza o mesmo IP (\x03%s\x01) do(s) jogador(es) abaixo:", playerName, ip);
+
+	for (int i = 0; i < withSameIp.Length; i++)
+	{
+		JSONObject sameIp = view_as<JSONObject>(withSameIp.Get(i));
+		
+		char name[256];
+		sameIp.GetString("name", name, sizeof(name));
+
+		char profileUrl[256];
+		sameIp.GetString("profileUrl", profileUrl, sizeof(profileUrl));
+
+		PrintToChatAll("\x04%s: \x01%s", name, profileUrl);
+	}
+
+	PrintToChatAll("******************************************");
 }
 
 public void MoveToSpectatedPlayersWithoutAntiCheat()
@@ -248,11 +281,9 @@ public void MoveToSpectatedPlayersWithoutAntiCheat()
 
 			ChangeClientTeam(client, 1);
 			PrintToChat(client, "******************************************");
-			PrintToChat(client, "");
 			PrintToChat(client, "Você foi movido para a lista de suspeitos.");
 			PrintToChat(client, "Para continuar jogando instale o Anti-cheat.");
 			PrintToChat(client, "\x04Download: \x03https://zeatslauncherstorage.blob.core.windows.net/installers/l4d2-anti-cheat.exe");
-			PrintToChat(client, "");
 			PrintToChat(client, "******************************************");
 
 			break;

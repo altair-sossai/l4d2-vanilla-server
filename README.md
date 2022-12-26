@@ -3,6 +3,10 @@ The server is a mix between the standard Vanilla developed by Valve and the comm
 
 Currently the settings only support game mode versus 4x4.
 
+**My Steam account:**
+
+https://steamcommunity.com/id/altairsossai/
+
 ## Based on another repository
 Several existing files/plugins in this repository were copied from the repository below:
 - https://github.com/SirPlease/L4D2-Competitive-Rework

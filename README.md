@@ -7,6 +7,23 @@ Currently the settings only support game mode versus 4x4.
 Several existing files/plugins in this repository were copied from the repository below:
 - https://github.com/SirPlease/L4D2-Competitive-Rework
 
+## What changes?
+- Players can request !pause during games.
+- At the beginning of each round, 1 medkit and 3 pills are distributed to survivors.
+- Map medkits have been removed.
+- Only 2 molotovs present on the maps.
+- Only 2 pipe bombs present in the maps.
+- The amount of t2 weapons are limited for survivors.
+- The maps have the changes (stripper) present in the zone.
+- At the beginning of each round players need to type !ready to start.
+- Tank and witch on all maps (except finale)
+- If the witch is killed without incapacitating any player, 100 points are awarded to the survivors.
+- !mix functionality
+- !fila functionality
+- Tank is distributed equally among players
+- Player stats are displayed (Tank damage, MVP)
+- SMAC enabled
+
 ## How to install the default server (Linux)
 
 Use the commands below on a Linux operating system to install a standard server version of Left 4 Dead.

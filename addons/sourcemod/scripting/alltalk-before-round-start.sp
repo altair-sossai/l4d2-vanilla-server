@@ -23,7 +23,11 @@ public void OnRoundIsLive()
 
 public void OnMapStart()
 {
-    SetAllTalk(true);
+    char currentMap[64];
+    GetCurrentMap(currentMap, sizeof(currentMap));
+
+    bool firstMap = StrContains(currentMap, "m1_", true) != -1;
+    SetAllTalk(firstMap);
 }
 
 public void SetAllTalk(bool allTalk)

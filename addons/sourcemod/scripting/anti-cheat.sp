@@ -230,16 +230,13 @@ void RegisterPlayerIpResponse(HTTPResponse httpResponse, any value)
 	if (withSameIp.Length == 0)
 		return;
 
-	char ip[32];
-	response.GetString("ip", ip, sizeof(ip));
-
 	JSONObject player = view_as<JSONObject>(response.Get("player"));
 
 	char playerName[256];
 	player.GetString("name", playerName, sizeof(playerName));
 
 	PrintToChatAll("******************************************");
-	PrintToChatAll("\x01O jogador \x03%s\x01 utiliza o mesmo IP (\x03%s\x01) do(s) jogador(es) abaixo:", playerName, ip);
+	PrintToChatAll("\x01O jogador \x03%s\x01 utiliza o mesmo IP do(s) jogador(es) abaixo:", playerName);
 
 	for (int i = 0; i < withSameIp.Length; i++)
 	{
